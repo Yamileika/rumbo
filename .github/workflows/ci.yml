@@ -1,0 +1,28 @@
+name: CI Pipeline
+on:
+  push:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-node@v4
+      with:
+        node-version: '22'
+    - name: Ejecutar pruebas
+      run: |
+        node --test
+    - name: Build proyecto
+      run: |
+        mkdir artefactos
+        cp *.html *.js *.css *.json *.webmanifest *.png *.svg artefactos/
+        cp -r vendor widgets artefactos/
+        rm artefactos/*.test.js
+    - name: Generar ZIP
+      run: |
+        zip -r artefacto.zip artefactos
+    - name: Subir artefacto
+      uses: actions/upload-artifact@v4
+      with:
+        name: build-rumbo
+        path: artefacto.zip
