@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="es-MX"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#ffffff"><meta name="robots" content="noindex"><title>Rumbo · Administración de rutas</title><link rel="icon" href="icon.svg"><link rel="stylesheet" href="vendor/leaflet/leaflet.css"><link rel="stylesheet" href="vendor/maplibre/maplibre-gl.css"><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="admin.css"></head>
+<body class="admin">
+<div id="map" role="region" aria-label="Mapa para marcar rutas"></div>
+<aside class="sheet" id="sheet" aria-label="Administración de rutas">
+ <button class="grabber" id="grabber" type="button" aria-label="Expandir panel"><span></span></button>
+ <header class="sheet-head">
+  <a class="brand" href="./" title="Ver la aplicación"><img src="icon.svg" alt="" width="40" height="40"><span><b>Rumbo</b><small>Administración de rutas</small></span></a>
+  <div class="head-actions"></div>
+ </header>
+ <div class="publish-bar" id="publish-bar"><span class="dot"></span><span id="publish-state">Cargando…</span><button id="publish" class="btn primary sm" type="button"></button></div>
+
+ <div class="sheet-body" id="list-view">
+  <div class="list-actions"><button id="new-route" class="btn primary" type="button"></button><button id="import" class="btn" type="button" title="Importar rutas.json"></button><button id="export" class="btn" type="button" title="Descargar rutas.json"></button><input id="import-file" type="file" accept=".json,application/json" hidden></div>
+  <p class="pane-label" id="list-label"></p>
+  <ul id="list" class="route-list"></ul>
+  <div id="empty" class="empty" hidden></div>
+ </div>
+
+ <div class="sheet-body editor" id="editor-view" hidden>
+  <button type="button" class="back" id="back"></button>
+  <div class="identity">
+   <label class="code-field"><span>Clave</span><input id="f-code" maxlength="12" placeholder="12"></label>
+   <label class="name-field"><span>Nombre de la ruta</span><input id="f-name" maxlength="80" placeholder="Ej. Centro – Jaltepec"></label>
+  </div>
+  <div class="swatches" id="swatches" role="radiogroup" aria-label="Color de la ruta"></div>
+  <div class="segmented tools" role="tablist" aria-label="Herramienta"><button type="button" data-tool="trace" aria-pressed="true">Trazo</button><button type="button" data-tool="stops" aria-pressed="false">Paradas</button><button type="button" data-tool="info" aria-pressed="false">Datos</button></div>
+
+  <section id="tool-trace">
+   <div class="hint" id="trace-hint"></div>
+   <label class="switch"><input type="checkbox" id="snap" checked><span></span>Seguir las calles al trazar</label>
+   <div class="trace-stats" id="trace-stats"></div>
+   <div class="tool-row"><button type="button" class="btn sm" id="undo"></button><button type="button" class="btn sm" id="reverse"></button><button type="button" class="btn sm danger" id="clear-trace"></button></div>
+  </section>
+
+  <section id="tool-stops" hidden>
+   <div class="hint"><b>Toca el mapa</b> para agregar una parada. Arrastra una parada para moverla. Se ordenan solas según el recorrido.</div>
+   <ol id="stop-list" class="stop-list"></ol>
+  </section>
+
+  <section id="tool-info" hidden>
+   <div class="form-grid">
+    <label><span>Sale de</span><input id="f-from" maxlength="80" placeholder="Base o colonia de salida"></label>
+    <label><span>Llega a</span><input id="f-to" maxlength="80" placeholder="Destino"></label>
+    <label class="wide"><span>Pasa por (calles o lugares, separados por comas)</span><input id="f-via" maxlength="600" placeholder="21 de Marzo, Centro, Hospital General"></label>
+    <label><span>Tarifa</span><input id="f-fare" maxlength="40" placeholder="$12"></label>
+    <label><span>Frecuencia</span><input id="f-frequency" maxlength="60" placeholder="Cada 10 min"></label>
+    <label class="wide"><span>Horario</span><input id="f-hours" maxlength="80" placeholder="Lunes a domingo, 6:00 a 21:00"></label>
+    <label class="wide"><span>Notas para las personas usuarias</span><textarea id="f-notes" maxlength="400" rows="3" placeholder="Dónde se toma, cambios de recorrido, avisos…"></textarea></label>
+    <label class="wide"><span>Estado de la información</span><select id="f-source"><option value="capturada">Capturada (sin verificar)</option><option value="oficial">Verificada con la base o una fuente oficial</option><option value="ejemplo">Ejemplo (trazo ilustrativo)</option></select></label>
+   </div>
+  </section>
+  <div class="editor-foot"><button type="button" class="btn danger sm" id="delete-route"></button><button type="button" class="btn primary" id="done">Listo</button></div>
+ </div>
+</aside>
+<div class="map-tools"><button id="layer" class="fab" type="button" aria-pressed="false" title="Vista satélite"></button><button id="fit" class="fab" type="button" title="Encuadrar la ruta"></button></div>
+<div id="busy" class="busy" hidden>Siguiendo calles…</div>
+<div id="toast" role="status" aria-live="polite"></div>
+<script src="vendor/leaflet/leaflet.js"></script><script src="vendor/maplibre/maplibre-gl.js"></script><script src="vendor/maplibre/leaflet-maplibre-gl.js"></script><script src="geo.js"></script><script src="common.js"></script><script src="admin.js"></script>
+</body></html>

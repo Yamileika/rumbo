@@ -1,0 +1,85 @@
+{
+  "id": "/rumbo",
+  "name": "Rumbo · Colectivas de Tulancingo",
+  "short_name": "Rumbo",
+  "description": "Mira por dónde pasan las rutas de colectivas de Tulancingo, Hgo., encuentra las que pasan cerca y guarda las que usas.",
+  "lang": "es-MX",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "share_target": {
+    "action": "./index.html",
+    "method": "GET",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url"
+    }
+  },
+  "widgets": [
+    {
+      "name": "Rumbo · Tu ruta de hoy",
+      "short_name": "Ruta Rumbo",
+      "description": "Consulta la ruta de colectiva seleccionada.",
+      "tag": "rumbo-ruta",
+      "template": "rumbo-template",
+      "ms_ac_template": "widgets/template.json",
+      "data": "widgets/data.json",
+      "type": "application/json",
+      "screenshots": [
+        {
+          "src": "widgets/screenshot.png",
+          "sizes": "600x400",
+          "type": "image/png",
+          "label": "Ruta de colectiva seleccionada en Rumbo",
+          "platform": "Windows"
+        }
+      ],
+      "auth": false,
+      "multiple": false,
+      "icons": [
+        {
+          "src": "icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ],
+      "update": 86400
+    }
+  ],
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Cerca de mí",
+      "url": "./?tab=near"
+    },
+    {
+      "name": "Administrar rutas",
+      "url": "./admin.html"
+    }
+  ],
+  "display_override": [
+    "window-controls-overlay"
+  ]
+}

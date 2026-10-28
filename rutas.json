@@ -1,0 +1,47 @@
+{
+  "aviso": "Rutas de EJEMPLO con trazos ilustrativos. No corresponden a recorridos oficiales. Reemplázalas con rutas capturadas o verificadas.",
+  "rutas": [
+    {
+      "id": "ejemplo-a",
+      "code": "A",
+      "name": "Ejemplo A · Centro – Norte",
+      "from": "Centro",
+      "to": "Zona norte",
+      "via": ["Centro", "Av. 21 de Marzo"],
+      "fare": "",
+      "hours": "",
+      "notes": "Trazo ilustrativo para probar la aplicación. Reemplázalo por el recorrido real.",
+      "color": "#dc2626",
+      "source": "ejemplo",
+      "points": [[20.0845, -98.3636], [20.0872, -98.3651], [20.0911, -98.3672], [20.0958, -98.3689], [20.1003, -98.3701]]
+    },
+    {
+      "id": "ejemplo-b",
+      "code": "B",
+      "name": "Ejemplo B · Centro – Oriente",
+      "from": "Centro",
+      "to": "Zona oriente",
+      "via": ["Centro"],
+      "fare": "",
+      "hours": "",
+      "notes": "Trazo ilustrativo para probar la aplicación. Reemplázalo por el recorrido real.",
+      "color": "#2563eb",
+      "source": "ejemplo",
+      "points": [[20.0845, -98.3636], [20.0839, -98.3592], [20.0826, -98.3541], [20.0818, -98.3488], [20.0806, -98.3430]]
+    },
+    {
+      "id": "ejemplo-c",
+      "code": "C",
+      "name": "Ejemplo C · Centro – Sur poniente",
+      "from": "Centro",
+      "to": "Zona sur poniente",
+      "via": ["Centro"],
+      "fare": "",
+      "hours": "",
+      "notes": "Trazo ilustrativo para probar la aplicación. Reemplázalo por el recorrido real.",
+      "color": "#059669",
+      "source": "ejemplo",
+      "points": [[20.0845, -98.3636], [20.0812, -98.3668], [20.0779, -98.3702], [20.0741, -98.3741], [20.0703, -98.3769]]
+    }
+  ]
+}

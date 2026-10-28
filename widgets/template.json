@@ -1,0 +1,88 @@
+{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "type": "AdaptiveCard",
+  "version": "1.5",
+  "body": [
+    {
+      "type": "ColumnSet",
+      "columns": [
+        {
+          "type": "Column",
+          "width": "stretch",
+          "items": [
+            {
+              "type": "TextBlock",
+              "text": "RUMBO / COLECTIVAS",
+              "size": "Small",
+              "weight": "Bolder",
+              "color": "Accent",
+              "wrap": true
+            }
+          ]
+        },
+        {
+          "type": "Column",
+          "width": "auto",
+          "items": [
+            {
+              "type": "TextBlock",
+              "text": "RUTA",
+              "size": "Small",
+              "isSubtle": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Container",
+      "style": "emphasis",
+      "spacing": "Medium",
+      "bleed": true,
+      "items": [
+        {
+          "type": "TextBlock",
+          "text": "Tu ruta de hoy",
+          "size": "Small",
+          "isSubtle": true
+        },
+        {
+          "type": "TextBlock",
+          "text": "${result}",
+          "size": "ExtraLarge",
+          "weight": "Bolder",
+          "wrap": true,
+          "spacing": "Small"
+        },
+        {
+          "type": "TextBlock",
+          "text": "${detail}",
+          "wrap": true,
+          "size": "Small",
+          "spacing": "Medium"
+        }
+      ]
+    },
+    {
+      "type": "TextBlock",
+      "text": "Rutas capturadas por personas usuarias. Confirma con la base.",
+      "size": "Small",
+      "isSubtle": true,
+      "wrap": true,
+      "separator": true,
+      "spacing": "Medium"
+    }
+  ],
+  "actions": [
+    {
+      "type": "Action.Execute",
+      "title": "Abrir Rumbo",
+      "verb": "open-app"
+    },
+    {
+      "type": "Action.Execute",
+      "title": "Actualizar",
+      "verb": "refresh"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="es-MX"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#ffffff"><title>Rumbo · Colectivas de Tulancingo</title><link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icon.svg"><link rel="stylesheet" href="vendor/leaflet/leaflet.css"><link rel="stylesheet" href="vendor/maplibre/maplibre-gl.css"><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="widgets/preview.css"></head>
+<body class="public">
+<nav class="window-toolbar" aria-label="Controles de Rumbo"><span class="toolbar-brand"><img src="icon.svg" alt="" width="22" height="22">Rumbo <small>Colectivas de Tulancingo</small></span><label class="toolbar-search"><span data-icon="search"></span><input id="toolbar-search" type="search" placeholder="Buscar ruta o calle…" aria-label="Buscar ruta o calle"></label><button id="tb-near" type="button" aria-pressed="false"><span data-icon="pin"></span><span>Cerca de mí</span></button><button id="tb-saved" type="button" aria-pressed="false"><span data-icon="star"></span><span>Guardadas</span></button><button id="tb-share" type="button"><span data-icon="share"></span><span>Compartir</span></button><button id="tb-install" type="button"><span data-icon="install"></span><span>Instalar</span></button><button id="tb-help" type="button"><span data-icon="info"></span><span>Ayuda</span></button></nav>
+<div id="map" role="region" aria-label="Mapa de rutas de Tulancingo"></div>
+<aside class="sheet" id="sheet" aria-label="Rutas de colectivas">
+ <button class="grabber" id="grabber" type="button" aria-label="Expandir panel"><span></span></button>
+ <header class="sheet-head">
+  <a class="brand" href="./"><img src="icon.svg" alt="" width="40" height="40"><span><b>Rumbo</b><small>Colectivas de Tulancingo</small></span></a>
+  <div class="head-actions"><button id="install" class="icon-btn" type="button" title="Instalar aplicación" aria-label="Instalar aplicación" hidden></button><button id="about" class="icon-btn" type="button" title="Acerca de Rumbo" aria-label="Acerca de Rumbo"></button></div>
+ </header>
+ <label class="search" id="search-box"><span id="search-icon"></span><input id="search" type="search" placeholder="Ruta, colonia o calle…" aria-label="Buscar rutas" autocomplete="off"></label>
+ <div class="segmented" role="tablist" aria-label="Secciones"><button type="button" role="tab" data-tab="routes" aria-selected="true">Rutas</button><button type="button" role="tab" data-tab="near" aria-selected="false">Cerca de mí</button><button type="button" role="tab" data-tab="saved" aria-selected="false">Guardadas <span id="count" class="count">0</span></button></div>
+ <div class="sheet-body" id="sheet-body">
+  <section id="pane-list"><div id="received" class="received" hidden><div class="received-head"><b>Contenido recibido</b><button type="button" class="icon-btn" id="received-close" aria-label="Cerrar"></button></div><pre></pre></div><div id="welcome" class="welcome" hidden></div><p id="results" class="pane-label"></p><ul id="list" class="route-list"></ul><div id="empty" class="empty" hidden></div><div id="example-note" class="callout" hidden></div><section class="share-card" id="share-card"><p class="eyebrow">Avísale a quien va contigo</p><h3 id="share-title"></h3><p id="share-desc"></p><div class="share-actions"><button type="button" class="btn primary" id="share-route"></button><button type="button" class="btn" id="share-image"></button></div><button type="button" class="link-btn" id="share-app"></button></section></section>
+  <section id="pane-near" hidden><div class="near-intro"><p><b>Toca el mapa</b> donde estás o a donde quieres ir, o usa tu ubicación.</p><button id="locate" class="btn primary" type="button"></button><div class="chips radius" role="group" aria-label="Distancia"><button type="button" data-radius="200">200 m</button><button type="button" data-radius="400" aria-pressed="true">400 m</button><button type="button" data-radius="800">800 m</button></div></div><ul id="near-list" class="route-list"></ul></section>
+  <section id="pane-detail" hidden></section>
+ </div>
+</aside>
+<div class="map-tools"><button id="layer" class="fab" type="button" aria-pressed="false" title="Vista satélite"></button><button id="recenter" class="fab" type="button" title="Ver todo Tulancingo"></button></div>
+<dialog id="about-dialog"><div class="dialog-head"><h2>Rumbo</h2><button class="icon-btn" id="about-close" type="button" aria-label="Cerrar"></button></div>
+ <p>Mira por dónde pasa cada colectiva de Tulancingo, encuentra las que pasan cerca de ti y guarda las que usas.</p>
+ <ul class="help"><li><b>Buscar:</b> escribe el número de la ruta, una colonia o una calle. El mapa muestra solo las rutas que coinciden.</li><li><b>Cerca de mí:</b> toca el mapa o usa tu ubicación; verás las rutas que pasan dentro de la distancia elegida.</li><li><b>Guardadas:</b> toca la estrella de una ruta para tenerla a la mano. Se guarda en este dispositivo.</li></ul>
+ <p class="fine">Información capturada por la administración de Rumbo. No es información oficial de la Secretaría de Movilidad y Transporte de Hidalgo; confirma horarios y tarifas en la base de cada ruta. Mapa © OpenFreeMap, OpenMapTiles, colaboradores de OpenStreetMap y Esri.</p>
+ <div id="widget-slot"></div>
+ <p class="fine"><a href="admin.html">Panel de administración</a></p>
+</dialog>
+<div id="toast" role="status" aria-live="polite"></div>
+<script src="vendor/leaflet/leaflet.js"></script><script src="vendor/maplibre/maplibre-gl.js"></script><script src="vendor/maplibre/leaflet-maplibre-gl.js"></script><script src="geo.js"></script><script src="common.js"></script><script src="app.js"></script><script src="widgets/preview.js"></script>
+</body></html>
