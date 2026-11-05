@@ -2,22 +2,33 @@ name: CI Pipeline
 on:
   push:
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
     - uses: actions/setup-node@v4
       with:
         node-version: '22'
+    - name: Instalar dependencias
+      run: |
+        npm ci
     - name: Ejecutar pruebas
       run: |
         node --test
+    - name: Ejecutar cobertura
+      run: |
+        npx c8 --reporter=text --reporter=cobertura node --test
+    - name: Guardar reporte
+      uses: actions/upload-artifact@v4
+      with:
+        name: coverage-report
+        path: coverage/cobertura-coverage.xml
     - name: Build proyecto
       run: |
         mkdir artefactos
         cp *.html *.js *.css *.json *.webmanifest *.png *.svg artefactos/
         cp -r vendor widgets artefactos/
-        rm artefactos/*.test.js
+        rm artefactos/*.test.js artefactos/package*.json
     - name: Generar ZIP
       run: |
         zip -r artefacto.zip artefactos
