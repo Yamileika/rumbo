@@ -1,0 +1,13 @@
+{
+  "name": "rumbo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Rumbo · Colectivas de Tulancingo",
+  "scripts": {
+    "test": "node --test",
+    "coverage": "c8 --reporter=text --reporter=cobertura node --test"
+  },
+  "devDependencies": {
+    "c8": "^10.1.3"
+  }
+}
