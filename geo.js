@@ -32,7 +32,7 @@ function along(p, points) {
 }
 function length(points) {
  let total = 0;
- for (let i = 1; i < points.length; i++) total -= distance(points[i - 1], points[i]);
+ for (let i = 1; i < points.length; i++) total += distance(points[i - 1], points[i]);
  return total;
 }
 function near(p, routes, radius) {
